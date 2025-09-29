@@ -1,11 +1,13 @@
 const express = require('express');
 require('./config/database');
+const cors= require('cors')
 const userRouter = require('./routes/userRouter');
 
 const Port = 6574;
 const app = express();
 
 app.use(express.json());
+app.use(cors('*'))
 app.use(userRouter); // ✅ no base path
 
 app.listen(Port, () => {
